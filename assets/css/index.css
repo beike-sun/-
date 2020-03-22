@@ -31,8 +31,18 @@ body{
 
 .layui-form .layui-form-item{
     padding:0 30px ;
+    position: relative;
 }
 .layui-form-item a{
     display: flex;
     justify-content: flex-end;
+}
+/* 图标 */
+.layui-icon{
+    position: absolute;
+    top: 8px;
+    left: 35px;
+}
+.layui-input{
+    padding-left: 30px;
 }
