@@ -19,6 +19,9 @@ body{
     top: 50%;
    transform: translate(-50%,-50%);
 }
+.register{
+    display: none;
+}
 /* 表单标题 */
 .layui-form .form-title {
     text-align: center;

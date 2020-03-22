@@ -1,0 +1,10 @@
+$(function(){
+    $('#quzhuce').on('click',function(){
+        $('.login').hide();
+        $('.register').show();
+    });
+    $('#qudenglu').on('click',function(){
+        $('.login').show();
+        $('.register').hide();
+    });
+})
