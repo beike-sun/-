@@ -24,4 +24,28 @@ $(function () {
         }
     });
 
+    // 获取表单信息进行接口提交
+    var layer = layui.layer;
+    $('.form-reg').on('submit', function (e) {
+        e.preventDefault();
+        // 获取表单数据
+        var data = $(this).serialize();
+        console.log(data);
+        
+        $.ajax({
+            type: 'post',
+            url: 'http://www.liulongbin.top:3007/api/reguser',
+            data: data,
+            success: function (res) {
+                console.log(res);
+                
+               if(res.status===1){
+                   return layer.msg(res.message);
+               }
+               layer.msg(res.message);
+
+            }
+        })
+    })
+
 })
