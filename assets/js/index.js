@@ -34,7 +34,7 @@ $(function () {
 
         $.ajax({
             type: 'post',
-            url: 'http://www.liulongbin.top:3007/api/reguser',
+            url: '/api/reguser',
             data: data,
             success: function (res) {
                 console.log(res);
@@ -47,26 +47,30 @@ $(function () {
             }
         })
     });
-    //   实现登陆功能
+    //    客户端向服务器端请求登陆，实现登陆功能
     $('#form-login').on('submit', function (e) {
         e.preventDefault();
+        // 获取登陆的表单信息
         var data = $(this).serialize();
         console.log(data);
         $.ajax({
             type: 'post',
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',
             data: data,
             success: function (res) {
+                //获取登陆后服务器返回的结果，如果失败了
                 console.log(res);
                 if (res.status === 1) {
                     // 失败后重置表单
                     $('#form-login')[0].reset();
                     return layer.msg(res.message);
                 }
-                // 成功了
+                //如果成功了，服务器返回给客户端一个token令牌，用于之后访问服务器后台的相关界面
                 // 保存token，因为下次去访问服务器的其他资源的时候，服务器需要我们带着token去(工牌)
                 layer.msg(res.message);
                 localStorage.setItem('token',res.token);
+                // 跳转到后台首页
+                location.href='/loginIndex.html';
             }
         })
     })
