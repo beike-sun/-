@@ -31,21 +31,43 @@ $(function () {
         // 获取表单数据
         var data = $(this).serialize();
         console.log(data);
-        
+
         $.ajax({
             type: 'post',
             url: 'http://www.liulongbin.top:3007/api/reguser',
             data: data,
             success: function (res) {
                 console.log(res);
-                
-               if(res.status===1){
-                   return layer.msg(res.message);
-               }
-               layer.msg(res.message);
+
+                if (res.status === 1) {
+                    return layer.msg(res.message);
+                }
+                layer.msg(res.message);
 
             }
         })
+    });
+    //   实现登陆功能
+    $('#form-login').on('submit', function (e) {
+        e.preventDefault();
+        var data = $(this).serialize();
+        console.log(data);
+        $.ajax({
+            type: 'post',
+            url: 'http://www.liulongbin.top:3007/api/login',
+            data: data,
+            success: function (res) {
+                console.log(res);
+                if (res.status === 1) {
+                    // 失败后重置表单
+                    $('#form-login')[0].reset();
+                    return layer.msg(res.message);
+                }
+                // 成功了
+                // 保存token，因为下次去访问服务器的其他资源的时候，服务器需要我们带着token去(工牌)
+                layer.msg(res.message);
+                localStorage.setItem('token',res.token);
+            }
+        })
     })
-
 })
