@@ -28,16 +28,51 @@ function getUserInfo() {
     // 发送请求获取用户信息
     // 渲染
     $.ajax({
-        type: 'get',
+
         url: '/my/userinfo',
         success: function (res) {
             console.log(res);
+            if (res.status != 0) {
+                // 失败之后
+                return layer.msg(res.message);
+            }
+            // 成功之后渲染页面
+            renderHtml(res.data);
+        
 
+        },
+        complete: function (xhr) {
+            if (xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
+                location.href = '/index.html';
+            }
         },
         // 自己配置请求头
         headers: {
             Authorization: localStorage.getItem('token')
         }
 
-    })
+    });
+}
+// 渲染页面的函数
+function renderHtml(shuju) {
+
+    
+    // 获取字体头像
+    // 如果有昵称用昵称，没有昵称用账号.优先使用前面的
+    var name = shuju.nickname || shuju.username;
+    // 获取第一个字母或中文
+    var firstText = name.substr(0, 1).toUpperCase;
+    if (shuju.user_pic) {
+        // 显示图片
+        $('.person img').show().attr('src', shuju.user_pic);
+        // 隐藏字体头像
+        $('.person .text-avatar').hide();
+    } else {
+        $('.person img').hide();
+        $('.person .text-avatar').css('display','inline-block').text(name.substr(0,1));
+
+
+    }
+    // 设置欢迎
+    $('.welcom').html('欢迎你&nbsp;&nbsp;' + name);
 }

@@ -27,10 +27,10 @@
             </ul>
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="person">
                         <!-- 图像和字体二选一 -->
                         <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                        <span class="text-avatar" >T</span>
+                        <span class="text-avatar" >t</span>
                         个人中心
                     </a>
                     <dl class="layui-nav-child">
@@ -46,11 +46,11 @@
 
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
-                <a href="javascript:;" class="welcome">
+                <a href="javascript:;" class="welcome person">
                     <!-- 图像和字体二选一 -->
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    <span class="text-avatar" style="display: none;">T</span>
-                    <span>欢迎你&nbsp;&nbsp;loginIndex</span>
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img ">
+                    <span class="text-avatar" >t</span>
+                    <span class="welcom">欢迎你&nbsp;&nbsp;loginIndex</span>
                 </a>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree " lay-shrink="all">
@@ -75,14 +75,13 @@
                         <a href="javascript:;"> <span class="iconfont icon-user">个人中心</span>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="/testAside.html" target="fm"><i class="layui-icon layui-icon-app"></i> 基本资料</a>
+                            <dd><a href="javascript:;" target="fm"><i class="layui-icon layui-icon-app"></i> 基本资料</a>
                             </dd>
                             <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i> 更换头像</a></dd>
                             <dd><a href=""><i class="layui-icon layui-icon-app"></i> 重置密码</a></dd>
                         </dl>
                     </li>
-                    <!-- <li class="layui-nav-item"><a href="">云市场</a></li>
-        <li class="layui-nav-item"><a href="">发布商品</a></li> -->
+                    
                 </ul>
             </div>
         </div>
@@ -97,10 +96,11 @@
             © layui.com - 底部固定区域
         </div>
     </div>
+      <!-- 引入jQuery -->
+      <script src="/assets/lib/jquery.js"></script>
     <!-- 换成自己项目路径的js -->
     <script src="/assets/lib/layui/layui.all.js"></script>
-    <!-- 引入jQuery -->
-    <script src="/assets/lib/jquery.js"></script>
+  
     <!-- 引入baseApi -->
     <script src="/assets/js/baseAPI.js"></script>
     <!-- 引入自己的js -->

@@ -5,7 +5,6 @@
 /* 设置字体头像 */
 .text-avatar{
     display: inline-block;
-    display: none;
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -14,10 +13,11 @@ border-radius: 50%;
 font-size: 18px;
 color: #fff;
 font-weight: 700;
-    background-color: #009688;
+background-color: #009688;
 position: relative;    
 left: -5px;
 top: 3px;
+display: none;
 }
 /* iconfont字体图标 */
 .iconfont{
