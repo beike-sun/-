@@ -38,7 +38,7 @@ function getUserInfo() {
             }
             // 成功之后渲染页面
             renderHtml(res.data);
-        
+
 
         },
         complete: function (xhr) {
@@ -56,7 +56,7 @@ function getUserInfo() {
 // 渲染页面的函数
 function renderHtml(shuju) {
 
-    
+
     // 获取字体头像
     // 如果有昵称用昵称，没有昵称用账号.优先使用前面的
     var name = shuju.nickname || shuju.username;
@@ -69,7 +69,7 @@ function renderHtml(shuju) {
         $('.person .text-avatar').hide();
     } else {
         $('.person img').hide();
-        $('.person .text-avatar').css('display','inline-block').text(name.substr(0,1));
+        $('.person .text-avatar').css('display', 'inline-block').text(name.substr(0, 1));
 
 
     }
